@@ -1,0 +1,33 @@
+## CHANGE this to the name of your plugin.
+name: VoidHarvesters
+
+## CHANGE this to your username.
+authors:
+  - NCBPFluffyBear
+  - Rene98/F1r3Ston3
+
+## CHANGE this to a meaninful but short description of your plugin.
+description: A generic Slimefun4-Addon
+
+## CHANGE this to the path of the class that extends JavaPlugin.
+main: io.ncbpfluffybear.voidharvesters.VoidHarvesters
+
+## You can change this to link to your website or repository. You can also remove this line if you want to.
+website: https://github.com/Slimefun/Addon-Template
+
+## This value is automatically replaced by the version specified in your pom.xml file.
+## Do not change this.
+version: ${project.version}
+
+## This is the minimum minecraft version required to run your plugin.
+api-version: 1.17
+
+## This is required and marks Slimefun as a plugin dependency.
+depend:
+- Slimefun
+
+commands:
+  voidharvesters:
+    description: The default VoidHarvesters command
+    aliases:
+      - vh
