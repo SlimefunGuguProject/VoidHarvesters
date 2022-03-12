@@ -39,7 +39,7 @@ public class VoidHarvesters extends JavaPlugin implements SlimefunAddon {
 
         if(!getInstance().getDataFolder().exists()) {
             try {
-                getInstance().getDataFolder().createNewFile();
+                getInstance().getDataFolder().mkdir();
             } catch (IOException e) {
                 getInstance().getLogger().log(Level.SEVERE, "There was an issue creating VoidHarvesters directory.", e);
             }
