@@ -17,9 +17,9 @@ public class VoidHarvesterCommand implements CommandExecutor, TabCompleter {
     public boolean onCommand(@Nonnull CommandSender cs, @Nonnull Command cmd, @Nonnull String s, String[] args) {
         cs.sendMessage("test");
         if(args.length == 0) {
-            cs.sendMessage(color("&7Commands // Info", true));
-            cs.sendMessage(color("    info || shows current info of harvester block"));
-            cs.sendMessage(color("    upgrade || levels up a harvester [increase working range]"));
+            cs.sendMessage(color("&7指令 // 信息", true));
+            cs.sendMessage(color("    信息 || 显示挖掘机当前信息"));
+            cs.sendMessage(color("    升级模块 || 升级收割机 [提升工作范围]"));
             return true;
         }
 
