@@ -60,7 +60,7 @@ public final class VHItemSetup {
                     loreArray
             );
 
-            new Upgrade(VHItems.category, UPGRADE_ITEM, RecipeType.NULL, upgrade.getRecipe(), upgrade).register(plugin);
+            new Upgrade(VHItems.category, UPGRADE_ITEM, RecipeType.ENHANCED_CRAFTING_TABLE, upgrade.getRecipe(), upgrade).register(plugin);
         }
     }
 
