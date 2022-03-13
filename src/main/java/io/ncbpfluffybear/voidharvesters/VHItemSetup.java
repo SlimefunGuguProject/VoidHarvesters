@@ -45,8 +45,8 @@ public final class VHItemSetup {
 
             ArrayList<String> lore = upgrade.getLore();
 
-            lore.add("&7Max Level: " + upgrade.getMaxLvl());
-            lore.add("&7Acceptable Harvesters:");
+            lore.add("&7满级: " + upgrade.getMaxLvl());
+            lore.add("&7可插入:");
             for (HarvesterType harvesterType : upgrade.getAcceptableHarvesters()) {
                 lore.add("  &7- " + WordUtils.capitalize(harvesterType.name().toLowerCase()));
             }
@@ -56,11 +56,11 @@ public final class VHItemSetup {
             SlimefunItemStack UPGRADE_ITEM = new SlimefunItemStack(
                     upgrade.name() + "_UPGRADE",
                     Material.BOOK,
-                    "&b" + WordUtils.capitalize(upgrade.getName()) + " Upgrade",
+                    "&b" + WordUtils.capitalize(upgrade.getName()) + "升级模块",
                     loreArray
             );
 
-            new Upgrade(VHItems.category, UPGRADE_ITEM, RecipeType.ENHANCED_CRAFTING_TABLE, upgrade.getRecipe(), upgrade).register(plugin);
+            new Upgrade(VHItems.category, UPGRADE_ITEM, RecipeType.NULL, upgrade.getRecipe(), upgrade).register(plugin);
         }
     }
 
