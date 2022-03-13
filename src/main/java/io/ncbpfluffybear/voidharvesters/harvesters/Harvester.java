@@ -142,7 +142,7 @@ public abstract class Harvester extends SlimefunItem implements EnergyNetCompone
         }
 
         preset.addItem(STATUS_SLOT, new CustomItemStack(Material.RED_STAINED_GLASS_PANE,
-                "&bStatus", "&eWaiting for input..."));
+                "&b状态", "&e等待输入中..."));
         preset.addMenuClickHandler(STATUS_SLOT, ChestMenuUtils.getEmptyClickHandler());
 
         for (int slot : FUEL_BORDER) {
@@ -150,7 +150,7 @@ public abstract class Harvester extends SlimefunItem implements EnergyNetCompone
         }
 
         preset.addItem(FUEL_LABEL, new CustomItemStack(Material.BLACK_STAINED_GLASS_PANE, "&bFuel Input",
-                "&7Place fuel in the slot below"
+                "&7请将燃料放在以下槽内"
         ), ChestMenuUtils.getEmptyClickHandler());
 
         for (int slot: UPGRADE_BORDER) {
@@ -160,7 +160,7 @@ public abstract class Harvester extends SlimefunItem implements EnergyNetCompone
         }
 
         preset.addItem(UPGRADE_LABEL, new CustomItemStack(Material.BLACK_STAINED_GLASS_PANE, "&eUpgrade Slot",
-                "&7Place upgrade in the slot below"
+                "&7请将升级模块放在以下槽内"
         ), ChestMenuUtils.getEmptyClickHandler());
 
         for (int slot: OUTPUT_BORDER) {
@@ -183,8 +183,8 @@ public abstract class Harvester extends SlimefunItem implements EnergyNetCompone
                 Block b = e.getBlock();
                 VoidHarvesters.getPlayerData().addHarvester(e.getPlayer(), getHarvesterType(), b);
 
-                BlockStorage.addBlockInfo(b, "level", "1");
-                BlockStorage.addBlockInfo(b, "fuel", "0.00");
+                BlockStorage.addBlockInfo(b, "等级", "1");
+                BlockStorage.addBlockInfo(b, "燃料", "0.00");
             }
         };
     }
@@ -297,17 +297,17 @@ public abstract class Harvester extends SlimefunItem implements EnergyNetCompone
         }
 
         // Defaults
-        String energyStatus = "&cOut of power";
-        String fuelStatus = "&cFuel: 0.0";
-        String currentStatus = "&cCurrently not running";
+        String energyStatus = "&c能源已耗尽";
+        String fuelStatus = "&c燃料: 0.0";
+        String currentStatus = "&c当前尚未运行";
         Material statusMaterial = Material.LIME_STAINED_GLASS_PANE;
 
         if (energy) {
-            energyStatus = "&aRunning on power";
-            currentStatus = "&aCurrently using: &e" + getEnergyConsumption() / getDelay() + "J/s";
+            energyStatus = "&a当前正依靠电能运行";
+            currentStatus = "&a功率: &e" + getEnergyConsumption() / getDelay() + "J/s";
         } else if (fuel > getFuelConsumption()) {
             // Swap current status to fuel
-            currentStatus = "&aCurrently using: &e" + getFuelConsumption() / getDelay() + "F/s";
+            currentStatus = "&a燃料功率: &e" + getFuelConsumption() / getDelay() + "F/s";
         }
 
         if (fuel > 0) {
@@ -320,7 +320,7 @@ public abstract class Harvester extends SlimefunItem implements EnergyNetCompone
         }
 
         menu.replaceExistingItem(STATUS_SLOT, new CustomItemStack(statusMaterial,
-                "&bStatus",
+                "&b状态",
                 currentStatus,
                 "",
                 energyStatus,
@@ -401,8 +401,8 @@ public abstract class Harvester extends SlimefunItem implements EnergyNetCompone
     public List<ItemStack> getDisplayRecipes() {
         List<ItemStack> recipes = new ArrayList<>();
 
-        VoidHarvesters.getFuelSources().forEach((mat, pts) -> recipes.add(new CustomItemStack(mat, null, "&7Adds " + pts + " fuel points",
-                "&7Lasts " + pts / getFuelConsumption() + " seconds"
+        VoidHarvesters.getFuelSources().forEach((mat, pts) -> recipes.add(new CustomItemStack(mat, null, "&7添加 " + pts + "燃料",
+                "&7持续" + pts / getFuelConsumption() + "秒"
             )));
 
         return recipes;
