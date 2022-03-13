@@ -69,7 +69,7 @@ public class Upgrade extends SimpleSlimefunItem<ItemUseHandler> {
     private boolean canUpgrade(Player p, Harvester h, Block b, UpgradeType upgrade) {
         // Check if it can be applied to harvester type
         if (!upgrade.getAcceptableHarvesters().contains(h.getHarvesterType())) {
-            Utils.send(p, "&cThis upgrade can not be put on this harvester!");
+            Utils.send(p, "&c此升级模块不能插入此挖掘机中!");
             return false;
         }
 
@@ -103,11 +103,11 @@ public class Upgrade extends SimpleSlimefunItem<ItemUseHandler> {
      * All upgrades are defined here, the logic of the upgrade is defined in the respective harvester
      */
     public enum UpgradeType {
-        RANGE(4, new HashSet<>(Collections.singleton(HarvesterType.MINER)), new ItemStack[]{
+        RANGE(64, new HashSet<>(Collections.singleton(HarvesterType.MINER)), new ItemStack[]{
                 SlimefunItems.REINFORCED_ALLOY_INGOT, new ItemStack(Material.NETHERITE_PICKAXE), SlimefunItems.REINFORCED_ALLOY_INGOT,
                 SlimefunItems.REINFORCED_ALLOY_INGOT, SlimefunItems.POWER_CRYSTAL, SlimefunItems.REINFORCED_ALLOY_INGOT,
                 SlimefunItems.REINFORCED_ALLOY_INGOT, SlimefunItems.ADVANCED_CIRCUIT_BOARD, SlimefunItems.REINFORCED_ALLOY_INGOT
-        }, "&7Increases the range of the Harvester");
+        }, "&7增加挖掘机的范围");
 
         private final int maxLvl;
         private final Set<HarvesterType> acceptableHarvesters;
