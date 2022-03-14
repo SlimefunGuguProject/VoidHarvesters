@@ -26,17 +26,30 @@ public final class VHItemSetup {
     }
 
     public static void setup(VoidHarvesters plugin) {
-        minerHarvesterInstance =
-                new MinerHarvester(VHItems.category, VHItems.MINER_HARVESTER, RecipeType.NULL, new ItemStack[0]);
+        minerHarvesterInstance = new MinerHarvester(
+            VHItems.category,
+            VHItems.MINER_HARVESTER,
+            RecipeType.NULL,
+            new ItemStack[0]
+        );
         minerHarvesterInstance.register(plugin);
         HarvesterType.MINER.setInstance(minerHarvesterInstance);
 
-        woodcutterHarvesterInstance =
-                new WoodcutterHarvester(VHItems.category, VHItems.WOODCUTTER_HARVESTER, RecipeType.NULL, new ItemStack[0]);
+        woodcutterHarvesterInstance = new WoodcutterHarvester(
+            VHItems.category,
+            VHItems.WOODCUTTER_HARVESTER,
+            RecipeType.NULL,
+            new ItemStack[0]
+        );
         woodcutterHarvesterInstance.register(plugin);
         HarvesterType.WOODCUTTER.setInstance(woodcutterHarvesterInstance);
 
-        farmerHarvesterInstance = new FarmerHarvester(VHItems.category, VHItems.FARMER_HARVESTER, RecipeType.NULL, new ItemStack[0]);
+        farmerHarvesterInstance = new FarmerHarvester(
+            VHItems.category,
+            VHItems.FARMER_HARVESTER,
+            RecipeType.NULL,
+            new ItemStack[0]
+        );
         farmerHarvesterInstance.register(plugin);
         HarvesterType.FARMER.setInstance(farmerHarvesterInstance);
 

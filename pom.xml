@@ -45,7 +45,7 @@
                     <relocations>
                         <relocation>
                             <pattern>net.guizhanss.guizhanlib</pattern>
-                            <shadedPattern>io.github.sefiraat.slimetinker.guizhanlib</shadedPattern>
+                            <shadedPattern>io.ncbpfluffybear.voidharvesters.guizhanlib</shadedPattern>
                         </relocation>
                     </relocations>
                     <filters>
