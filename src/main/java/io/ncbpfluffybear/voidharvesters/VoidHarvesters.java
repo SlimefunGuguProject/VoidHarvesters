@@ -8,6 +8,7 @@ import io.ncbpfluffybear.voidharvesters.harvesters.Harvester;
 import io.ncbpfluffybear.voidharvesters.tasks.HarvesterTask;
 import io.ncbpfluffybear.voidharvesters.tasks.InitializeTask;
 import io.ncbpfluffybear.voidharvesters.tasks.SaveTask;
+import net.guizhanss.guizhanlib.updater.GuizhanBuildsUpdater;
 import org.bukkit.Material;
 import org.bukkit.OfflinePlayer;
 import org.bukkit.block.Block;
@@ -19,6 +20,7 @@ import javax.annotation.Nonnull;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
+import java.text.MessageFormat;
 import java.util.HashMap;
 import java.util.logging.Level;
 
@@ -38,11 +40,7 @@ public class VoidHarvesters extends JavaPlugin implements SlimefunAddon {
         instance = this;
 
         if(!getInstance().getDataFolder().exists()) {
-            try {
-                getInstance().getDataFolder().mkdir();
-            } catch (IOException e) {
-                getInstance().getLogger().log(Level.SEVERE, "There was an issue creating VoidHarvesters directory.", e);
-            }
+            getInstance().getDataFolder().mkdir();
         }
 
         // Generate files
@@ -51,7 +49,7 @@ public class VoidHarvesters extends JavaPlugin implements SlimefunAddon {
             //noinspection ResultOfMethodCallIgnored
             harvestersFile.createNewFile();
         } catch (IOException e) {
-            getInstance().getLogger().log(Level.SEVERE, "There was an issue creating a harvesters file.", e);
+            getInstance().getLogger().log(Level.SEVERE, "创建挖掘机文件时出现错误.", e);
         }
 
         final File fuelSourcesFile = new File(getInstance().getDataFolder(), "fuel-sources.yml");
@@ -59,7 +57,7 @@ public class VoidHarvesters extends JavaPlugin implements SlimefunAddon {
             try {
                 Files.copy(this.getClass().getResourceAsStream("/fuel-sources.yml"), fuelSourcesFile.toPath());
             } catch (IOException e) {
-                getInstance().getLogger().log(Level.SEVERE, "Failed to copy fuel-sources.yml", e);
+                getInstance().getLogger().log(Level.SEVERE, "无法创建默认的 fuel-sources.yml", e);
             }
         }
 
@@ -70,8 +68,9 @@ public class VoidHarvesters extends JavaPlugin implements SlimefunAddon {
         fuelSourcesConfig = new Config(this, "fuel-sources.yml");
 
         if (cfg.getBoolean("options.auto-update")) {
-            // You could start an Auto-Updater for example
+            new GuizhanBuildsUpdater(this, getFile(), "SlimefunGuguProject", "VoidHarvesters", "main", false).start();
         }
+
         VoidHarvesterCommand vhc = new VoidHarvesterCommand();
         getCommand("voidharvesters").setExecutor(vhc);
         getCommand("voidharvesters").setTabCompleter(vhc);
@@ -164,7 +163,7 @@ public class VoidHarvesters extends JavaPlugin implements SlimefunAddon {
             }
         }
 
-        getInstance().getLogger().log(Level.INFO, savedHarvesters + " Harvesters have been saved");
+        getInstance().getLogger().log(Level.INFO, MessageFormat.format("已保存 {0} 个挖掘机", savedHarvesters));
         harvestersConfig.save();
     }
 
