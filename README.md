@@ -1,4 +1,4 @@
 # VoidHarvesters 虚空挖掘机
 
-A Slimefun4 plugin to replace minions and androids
+添加了可远程破坏方块的机器
 
