@@ -109,15 +109,15 @@ public class Upgrade extends SimpleSlimefunItem<ItemUseHandler> {
                 SlimefunItems.REINFORCED_ALLOY_INGOT, SlimefunItems.ADVANCED_CIRCUIT_BOARD, SlimefunItems.REINFORCED_ALLOY_INGOT
         }, "&7增加挖掘机的范围");
         
-    public enum UpgradeType {
-        RANGE(64, new HashSet<>(Collections.singleton(HarvesterType.WOODCUTTER)), new ItemStack[]{
+      UpgradeType {
+        RANGE2(64, new HashSet<>(Collections.singleton(HarvesterType.WOODCUTTER)), new ItemStack[]{
                 SlimefunItems.REINFORCED_ALLOY_INGOT, new ItemStack(Material.NETHERITE_AXE), SlimefunItems.REINFORCED_ALLOY_INGOT,
                 SlimefunItems.REINFORCED_ALLOY_INGOT, SlimefunItems.POWER_CRYSTAL, SlimefunItems.REINFORCED_ALLOY_INGOT,
                 SlimefunItems.REINFORCED_ALLOY_INGOT, SlimefunItems.ADVANCED_CIRCUIT_BOARD, SlimefunItems.REINFORCED_ALLOY_INGOT
         }, "&7增加伐木机的范围");
-
-    public enum UpgradeType {
-        RANGE(64, new HashSet<>(Collections.singleton(HarvesterType.FARMER)), new ItemStack[]{
+ 
+      UpgradeType {
+        RANGE3(64, new HashSet<>(Collections.singleton(HarvesterType.FARMER)), new ItemStack[]{
                 SlimefunItems.REINFORCED_ALLOY_INGOT, new ItemStack(Material.NETHERITE_HOE), SlimefunItems.REINFORCED_ALLOY_INGOT,
                 SlimefunItems.REINFORCED_ALLOY_INGOT, SlimefunItems.POWER_CRYSTAL, SlimefunItems.REINFORCED_ALLOY_INGOT,
                 SlimefunItems.REINFORCED_ALLOY_INGOT, SlimefunItems.ADVANCED_CIRCUIT_BOARD, SlimefunItems.REINFORCED_ALLOY_INGOT
